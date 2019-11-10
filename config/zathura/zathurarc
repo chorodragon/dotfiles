@@ -1,0 +1,40 @@
+# Font and colors
+set font                        "San Francisco Text 11"
+
+set default-bg                  "#282828"
+set default-fg                  "#fbf1c7"
+
+set statusbar-bg                "#2c3e50"
+set statusbar-fg                "#bdc3c7"
+
+set inputbar-bg                 "#2c3e50"
+set inputbar-fg                 "#bdc3c7"
+
+set recolor-lightcolor          "#282828"
+set recolor-darkcolor           "#fbf1c7"
+set recolor                     "false"
+
+set recolor-keephue             "false"
+
+# More settings
+
+set adjust-open                 width
+set pages-per-row               1
+set smooth-scroll               true
+set selection-clipboard         clipboard
+set incremental-search          true
+#set guioptions                  ""
+
+set window-title-home-tilde     true
+set window-title-basename       true
+set statusbar-home-tilde        true
+set show-hidden                 true
+
+# Maps
+map <C--> zoom out              width
+map <C-+> zoom in               width
+map r                           recolor
+map <S-Up>                      zoom in
+map <S-Down>                    zoom out
+map <Space>                     scroll half-down
+map <BackSpace>                 scroll half-up

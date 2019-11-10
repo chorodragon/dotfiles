@@ -1,0 +1,185 @@
+/*
+ * Only show close buttons on background tabs when hovering with the mouse
+ *
+ * Contributor(s): Timvde
+ */
+
+.tabbrowser-tab:not([selected]):not([pinned]) .tab-close-button {
+    display: none !important;
+}
+
+.tabbrowser-tab:not([selected]):not([pinned]):hover .tab-close-button {
+    display: -moz-box !important;
+}
+
+
+ * Makes tabs only 22px high rather than the default 29px
+ * Only works on compact mode, otherwise tab height will be normal
+ *
+ * Contributor(s): DrPugsley
+ */
+
+[uidensity="compact"]:root {
+    --tab-min-height: 22px !important;
+    --newtab-margin: -3px 0 -3px -3px !important;
+}
+
+.tabbrowser-tab {
+    max-height: var(--tab-min-height) !important;
+}
+
+.tabs-newtab-button{
+    margin: var(--newtab-margin) !important;
+}
+
+/*
+ * Hide the back and forward buttons
+ *
+ * Contributor(s): Madis0, Timvde
+ */
+#main-window :-moz-any(#back-button, #forward-button) {
+    display: none !important;
+}
+
+/*
+ * Makes the address bar and search bar borderless. 
+ * Use the default white theme for an Edge-like look or in VivaldiFox with page colors applied 
+ * on toolbar fields for a seamless one-color look.
+ *
+ * Contributor(s): Madis0
+ */
+
+#urlbar, .searchbar-textbox {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/*
+ * Remove the "Sign in to sync" from top of photon hamburger menu.
+ *
+ * Contributor(s): PilzAdam
+ */
+
+#appMenu-fxa-container, #appMenu-fxa-container + toolbarseparator {
+    display: none !important;
+}
+
+
+/*
+ * Hide the green lock indicating SSL (HTTPS, encrypted connection) from the address bar. 
+ * To be used with https://addons.mozilla.org/en-US/firefox/addon/snap-http-padlocks/ in order to mark HTTP connections as insecure.
+ *
+ * Contributor(s): Madis0
+ */
+
+#urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon,
+#urlbar[pageproxystate="valid"] > #identity-box.verifiedIdentity > #connection-icon,
+#urlbar[pageproxystate="valid"] > #identity-box.mixedActiveBlocked > #connection-icon {
+    display: none !important;
+}
+
+/*
+ * Removes zoom indicator from Awesome Bar
+ *
+ * Screenshot: https://i.imgur.com/IZKicTI.png
+ *
+ * Contributor(s): BubiBalboa
+ */
+
+/* Hides the zoom indicator */
+#urlbar-zoom-button { 
+    display: none !important; 
+}
+
+/* Hides vertical separator line to make it look cleaner */
+#pageActionSeparator { 
+    display: none !important;
+}
+
+/*
+ * Hides the website name (when present) from the address bar, keeping only the location abbrevation.
+ *
+ * Contributor(s): Madis0
+ */
+
+#identity-icon-label { /* Hides the EV SSL label */
+    visibility: collapse !important;
+}
+
+#identity-box:hover > #identity-icon-labels > #identity-icon-label { /* Shows the label on identity box hover */
+    visibility: visible !important;
+}
+
+/*
+ * Automatically hides the info/Firefox icon on the location bar when a website doesn't
+ * have any permissions.
+ *
+ * Contributor(s): Madis0
+ */
+
+/* Hide info icon for sites that don't have permissions */
+#urlbar :not(.grantedPermissions) #identity-icon {
+    transition: 300ms !important; /* Animate icon hiding */
+	  opacity: 0 !important; /* Make icons transparent */
+	  -moz-margin-end: -1.1em !important; /* Hide icons by offsetting them */
+}
+
+/* Show info icon on navbar hover, except for new tab page search icon */
+#urlbar[pageproxystate="valid"]:hover #identity-icon {
+    transition: 300ms !important; /* Animate icon showing */
+	  opacity: 1 !important; /* Make icons opaque */
+	  -moz-margin-end: initial !important; /* Use initial margins to show icons */
+}
+
+
+/*
+ * Removes the side borders from active and inactive tabs.
+ *
+ * Contributor(s): Madis0
+ */
+
+.tabbrowser-tab::after, .tabbrowser-tab::before {
+    border-left: none !important; /* Remove borders from inactive tabs */
+}
+
+:root {
+    --tabs-border: transparent !important; /* Remove borders from active tab and below tabs */
+}
+
+/*
+ * Hides the separator between address bar PageAction extensions and internal icons (Containers, Reader, etc.)
+ *
+ * Contributor(s): Madis0
+ */
+
+#pageActionSeparator{
+    display: none;
+}
+
+/* Hide various elements */
+/* Menu */
+#appMenu-fxa-container,                    /* Sign in to Sync */
+#appMenu-fxa-container+toolbarseparator,
+/* #appMenuRestoreLastSession, */
+#appMenu-zoom-controls,
+#appMenu-zoom-controls+toolbarseparator,
+#appMenu-edit-controls,
+#appMenu-edit-controls+toolbarseparator,
+#appMenu-library-button,
+#appMenu-customize-button,
+#appMenu-customize-button+toolbarseparator,
+#appMenu-open-file-button,
+#appMenu-save-file-button,
+#appMenu-find-button,
+#appMenu-more-button,
+
+/* URL Bar */
+#pageActionButton,
+#pocket-button-box,
+ar-button,
+.autocomplete-history-dropmarker,
+#identity-icon-labels
+{
+    display: none !important;
+}

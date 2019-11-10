@@ -1,0 +1,50 @@
+rename 三河屋ミッキー
+rename removeAndInstallVim
+!c
+shell chmod +x %s
+shell mv *Kanojo\ Real*.mkv 3D\ Kanojo/
+rename banner.png
+open_with comix
+shell mkdir Porn
+search Porn
+rename District.13.Ultimatum.2009.1080p.BluRay.x264-[YTS.AG].srt
+search g/
+
+shell less %s
+shell mkdir phrack69
+shell tar xvf %s
+rename The Unix Progamming Enviorement.pdf
+rename The UNIX Programming Environment.pdf
+shell mkdir ProyectoFinal
+shell Comics
+shell mkdir Comics
+find l
+shell mkdir impresora
+shell 7zip l %s
+shell mkdir intento2
+shell unzip %s
+shell zip %s intento.zip
+shell zip -r cap136.zip %s
+shell mkdir chapter
+shell mkdir Darling
+search j
+shell vim %s
+shell cat %s | xsel -i -b
+shell ls %s
+shell ls %s > yAnime.txt
+shell 7z -d %s
+shell 7z x %s
+shell p7zip -d %s
+search vocaloi
+shell mkdir Ingenieria
+shell mkdir Resident\ Evil\ Saga/
+rename Silent Hill Saga
+shell mkdir Visual\ Novels/
+shell mkdir HMPD
+open_with p
+open_with 
+shell unrar %s
+shell unrar x %s
+cd 
+delete
+search 
