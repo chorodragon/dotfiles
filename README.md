@@ -13,7 +13,7 @@ Systems I've used:
 - [Newsboat](https://newsboat.org/)
 - [Spacemacs](https://www.spacemacs.org/)
 - [Rofi](https://github.com/davatorium/rofi)
-- [Firefox]CSS (https://www.mozilla.org/en-US/firefox/)
+- [Firefox CSS](https://www.mozilla.org/en-US/firefox/)
 - [Compton](https://github.com/chjj/compton)
 - [i3](https://i3wm.org/)
 - [Kitty Terminal Emulator](https://sw.kovidgoyal.net/kitty/)
