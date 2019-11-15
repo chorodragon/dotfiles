@@ -1,7 +1,7 @@
 # Configuration files used in my system
-Systems I've used:
+Systems I've used this configurations on:
 - Arch Linux
-- Windows 10
+- Windows 10 (partial support)
 - Debian 10
 - Ubuntu 19.10
 
