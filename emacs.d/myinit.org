@@ -26,20 +26,13 @@ Emacs configurations
     (global-linum-mode 1)
 
     ;; Hide Scroll Bar
-    (toggle-scroll-bar 1)
+    (toggle-scroll-bar -1)
 
     ;; Prevent backup files from being created
     (setq make-backup-files nil)
 
   #+END_SRC
 
-* Chords
-#+BEGIN_SRC emacs-lisp
-   (use-package use-package-chords
-	  :ensure t
-	  :config
-	  (key-chord-mode 1))
-#+END_SRC
 * AutoUpdate
 #+BEGIN_SRC emacs-lisp
   (use-package auto-package-update
@@ -81,9 +74,6 @@ Emacs configurations
 						  ))
   (electric-pair-mode t)
 
-  ;;Transform yes-or-no questions into y-or-n
-  (defalias 'yes-or-no-p 'y-or-n-p)
-
   ;;Easier resize bindings
   ;; Super - Control - <arrow>
   (global-set-key (kbd "s-C-<left>") 'shrink-window-horizontally)
@@ -97,29 +87,6 @@ Emacs configurations
   ;;Remove spaces at end of line on save
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+END_SRC
-* Try Package
-  It allows to try a package without the need to install it. For more
-  information visit: [[https://github.com/larstvei/Try/tree/271b0a362cadf44d0694628b9e213f54516ef913][Github]]
- #+BEGIN_SRC emacs-lisp
-
-(use-package try
-  :ensure t)
-
- #+END_SRC
-
-* Which Key Package
-  It enables a little buffer at the bottom of the screen that shows a
-  menu for the possible actions to do when enter an incomplete
-  command.
-
-#+BEGIN_SRC emacs-lisp
-
-(use-package which-key
-  :ensure t
-  :config (which-key-mode))
-
-#+END_SRC
-
 * Autocompletition
   Enables autocomplete on file and buffer selection.
 #+BEGIN_SRC emacs-lisp
@@ -174,21 +141,13 @@ Emacs configurations
   Enable auto-complete package.
   #+BEGIN_SRC emacs-lisp
 
-(use-package auto-complete
-  :ensure t
-  :init
-  (progn
-    (ac-config-default)
-    (global-auto-complete-mode t)
-    ))
-
-  #+END_SRC
-* Theme
-  Define Moe theme
-  #+BEGIN_SRC emacs-lisp
-
-(use-package moe-theme
-  :ensure t)
+;;(use-package auto-complete
+  ;;:ensure t
+  ;;:init
+  ;;(progn
+    ;;(ac-config-default)
+    ;;(global-auto-complete-mode t)
+    ;;))
 
   #+END_SRC
 * Better Buffer
@@ -199,13 +158,6 @@ Emacs configurations
 
   #+END_SRC
 
-* Flycheck
-#+BEGIN_SRC emacs-lisp
-  (use-package flycheck
-    :ensure t
-    :init
-    (global-flycheck-mode t))
-#+END_SRC
 * Emmet
 #+BEGIN_SRC emacs-lisp
   (use-package emmet-mode
@@ -226,9 +178,6 @@ Emacs configurations
       :ensure t
       :config
       (global-hungry-delete-mode))
-
-    (use-package iedit
-      :ensure t)
   #+END_SRC
 * Projectile
   #+BEGIN_SRC emacs-lisp
@@ -237,25 +186,6 @@ Emacs configurations
       :config
       (projectile-global-mode))
  (setq projectile-completion-system 'ivy)
-  #+END_SRC
-* PDF tools
-  #+BEGIN_SRC emacs-lisp
-    (use-package pdf-tools
-      :ensure t
-      :config)
-    (use-package org-pdfview
-      :ensure t)
-
-  #+END_SRC
-* Origami
-  #+BEGIN_SRC emacs-lisp
-    (use-package origami
-      :ensure t
-      :config
-      (progn
-	(global-origami-mode)
-	(global-set-key (kbd "C-c C-t") 'origami-toggle-node)
-       ))
   #+END_SRC
 * Smart Tab
 
@@ -284,58 +214,6 @@ Emacs configurations
 
   (add-hook 'web-mode-hook  'emmet-mode)
 #+END_SRC
-* Projectile
-#+BEGIN_SRC emacs-lisp
-  (use-package projectile
-    :ensure t
-    :config
-    (projectile-mode)
-    (setq projectile-completion-system 'ivy))
-
-  (use-package counsel-projectile
-    :ensure t
-    :config
-    (counsel-projectile-mode))
-
-  (setq projectile-keymap-prefix (kbd "C-c p"))
-#+END_SRC
-* JDEE
-#+BEGIN_SRC emacs-lisp
-  (use-package jdee
-    :ensure t
-    )
-#+END_SRC
-* Switch-window
-#+BEGIN_SRC emacs-lisp
-  (use-package switch-window
-    :ensure t
-    :config
-    (setq switch-window-input-style 'minibuffer)
-    (setq switch-window-increase 4)
-    (setq switch-window-threshold 2)
-    (setq switch-window-shorcut-style 'qwerty)
-    (setq switch-window-qwerty-shortcuts
-          '("a" "s" "d" "f" "j" "k" "l"))
-    :bind
-    ([remap other-window] . switch-window))
-#+END_SRC
-* Async
-#+BEGIN_SRC emacs-lisp
-  (use-package async
-    :ensure t
-    :init
-    (dired-async-mode 1))
-#+END_SRC
-* Company
-#+BEGIN_SRC emacs-lisp
-  (use-package company
-    :ensure t
-    :diminish
-    :config
-    (add-hook 'after-init-hook 'global-company-mode))
-(setq company-idle-delay t)
-#+END_SRC
-* C & C++
 ** Irony
 #+BEGIN_SRC emacs-lisp
 (use-package irony
@@ -362,67 +240,8 @@ Emacs configurations
 	:ensure t)
 #+END_SRC
 
-* Powerline
-#+BEGIN_SRC emacs-lisp
-  (use-package spaceline
-    :ensure t)
-  (use-package powerline
-      :ensure t
-      :init
-      (spaceline-spacemacs-theme)
-      :hook
-      ('after-init-hook) . 'powerline-reset)
-#+END_SRC
-* yasnippet
-#+BEGIN_SRC emacs-lisp
-(use-package yasnippet
-      :ensure t
-      :diminish yas-minor-mode
-      :config
-      (add-to-list 'yas-snippet-dirs "~/.emacs.d/yasnippet-snippets")
-      (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
-      (yas-global-mode)
-      (global-set-key (kbd "M-/") 'company-yasnippet))
-#+END_SRC
-* Crux
-#+BEGIN_SRC emacs-lisp
-   (use-package crux
-	  :ensure t
-	  :bind (("C-a" . crux-move-beginning-of-line)))
-#+END_SRC
-* Avy
-#+BEGIN_SRC emacs-lisp
-   (use-package avy
-	  :ensure t
-	  :chords (("jj" . avy-goto-char-2)
-			   ("jl" . avy-goto-line)))
-#+END_SRC
-* Rainbow Delimiters
-#+BEGIN_SRC emacs-lisp
- (use-package rainbow-delimiters
-    :ensure t
-    :config
-    (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
-#+END_SRC
 * Aggressive Indent
 #+BEGIN_SRC emacs-lisp
 (use-package aggressive-indent
       :ensure t)
-#+END_SRC
-* Dump jump
-#+BEGIN_SRC emacs-lisp
-(use-package dumb-jump
-    :ensure t
-    :diminish dumb-jump-mode
-    :bind (("C-M-g" . dumb-jump-go)
-           ("C-M-p" . dumb-jump-back)
-           ("C-M-q" . dumb-jump-quick-look)))
-#+END_SRC
-* Python
-#+BEGIN_SRC emacs-lisp
-(use-package anaconda-mode
-    :ensure t
-    :config
-    (add-hook 'python-mode-hook 'anaconda-mode)
-    (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
 #+END_SRC

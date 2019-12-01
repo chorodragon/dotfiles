@@ -6,6 +6,7 @@ Systems I've used this configurations on:
 - Ubuntu 19.10
 
 # Configurations
+- [Awesome WM](https://awesomewm.org/)
 - [Emacs](https://www.gnu.org/software/emacs/)
 - [VIM](https://www.vim.org/)
 - [NCMPCPP](https://rybczak.net/ncmpcpp/)
@@ -24,8 +25,8 @@ Systems I've used this configurations on:
 
 
 # TODO
-- [ ] Update Emcas configuration
-- [ ] Update VIM configuration
+- [x] Update Emcas configuration
+- [x] Update VIM configuration
 - [ ] Define variables for system
 - [ ] (Optional) Generate script for installing applications
 - [ ] Generate script for installing configuration files
