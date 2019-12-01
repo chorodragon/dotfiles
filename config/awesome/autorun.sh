@@ -7,4 +7,4 @@ function run {
   fi
 }
 
-run(compton)
+run compton -b
