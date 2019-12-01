@@ -42,7 +42,6 @@ end
 -- {{Directories
 home		= os.getenv("HOME")
 confdir 	= home .. "/.config/awesome/"
-
 -- }}
 
 
@@ -53,6 +52,7 @@ settings.term       = "kitty"
 settings.browser    = "firefox"
 settings.dateformat = "%Y/%m/%d %H:%M"
 settings.bar_height = 16
+
 
 naughty.config.defaults.screen = 1
 
@@ -187,7 +187,6 @@ awful.screen.connect_for_each_screen(function(s)
 
     left_layout:add(taglist[s])
     left_layout:add(promptbox[s])
-    right_layout:add(layoutbox[s])
     if s.index == naughty.config.defaults.screen then
     right_layout:add(padding)
     right_layout:add(tempwidget)
@@ -249,37 +248,22 @@ local globalkeys = awful.util.table.join (
   end),
   awful.key({ settings.modkey, "Shift"      }, "l",          function () awful.tag.incmwfact(-0.05) end),
   awful.key({ settings.modkey, "Shift"      }, "h",          function () awful.tag.incmwfact(0.05) end),
-  awful.key({ settings.modkey,              }, "space",      function () awful.layout.inc( 1) end)
+  awful.key({ settings.modkey,              }, "space",      function () awful.layout.inc( 1) end),
+  awful.key({ settings.modkey, "Control"    }, "j",          function () awful.screen.focus_relative( 1) end),
+  awful.key({ settings.modkey, "Control"    }, "k",          function () awful.screen.focus_relative(-1) end)
 )
 
-
-
---[[
-globalkeys = gears.table.join(
-    -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
-              {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
-              {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
-              {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
-              {description = "decrease the number of columns", group = "layout"}),
---]]
-
 local clientkeys = gears.table.join (
-  awful.key({ settings.modkey             }, "c",       function(c) c:kill() end),
-  awful.key({ settings.modkey, "Control"  }, "space",   awful.client.floating.toggle),
-  awful.key({ settings.modkey, "Shift"    }, "f",       function(c) c.fullscreen = not c.fullscreen end),
-  awful.key({ settings.modkey             }, "m",       function(c) c.maximized = not c.maximized end)
+  awful.key({ settings.modkey             }, "c",                       function(c) c:kill() end),
+  awful.key({ settings.modkey, "Control"  }, "space",                   awful.client.floating.toggle),
+  awful.key({ settings.modkey, "Shift"    }, "f",                       function(c) c.fullscreen = not c.fullscreen end),
+  awful.key({ settings.modkey             }, "m",                       function(c) c.maximized = not c.maximized end),
+  awful.key({                             }, "XF86AudioRaiseVolume",    function(c) awful.spawn.with_shell("amixer sset Master 2%+") end),
+  awful.key({                             }, "XF86AudioLowerVolume",    function(c) awful.spawn.with_shell("amixer sset Master 2%-") end),
+  awful.key({                             }, "XF86AudioMute",           function(c) awful.spawn.with_shell("amixer -q set Master toggle") end),
+  awful.key({                             }, "XF86AudioPrev",           function(c) awful.spawn.with_shell("playerctl --player=spotify previous") end),
+  awful.key({                             }, "XF86AudioNext",           function(c) awful.spawn.with_shell("playerctl --player=spotify next") end),
+  awful.key({                             }, "XF86AudioPlay",           function(c) awful.spawn.with_shell("playerctl --player=spotify play-pause") end)
 )
 
 keynumber = 0
