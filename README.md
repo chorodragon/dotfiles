@@ -27,6 +27,6 @@ Systems I've used this configurations on:
 # TODO
 - [x] Update Emcas configuration
 - [x] Update VIM configuration
-- [ ] Define variables for system
+- [x] Define variables for system
 - [ ] (Optional) Generate script for installing applications
 - [ ] Generate script for installing configuration files
